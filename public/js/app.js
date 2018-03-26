@@ -187,6 +187,33 @@
   var vis1_loaded = false;
   var vis2_loaded = false;
   var vis3_loaded = false;
+  var load_avg = function(data) {
+    $.getJSON("/data/avg_dispatch.json", function(data) {
+      var vals = [];
+      for (var i = 0; i < data.length; ++i) {
+        vals.push(data[i]["dispatch_time"]);
+      }
+      new Chartist.Bar('#avg-dispatch-graph', {
+        labels: ['94121','94103','94122','94109','94107','94110','94102','94133','94134','94111','94114','94131','94117','94112','94118','94158','94105','94115','94108','94124','94104','94116','94123','94127','94132','94130','94129'],
+        series: [vals]
+      }, {
+        seriesBarDistance: 10,
+        axisX: {
+          offset: 60
+        },
+        axisY: {
+          offset: 80,
+          labelInterpolationFnc: function(value) {
+            return value + ' CHF'
+          },
+          scaleMinSpace: 15
+        },
+        width: '100%',
+        height: '400px'
+      });
+    });
+
+  }
 
   $(".vis-picker").click(function() {
     var id_picked = "#" + $(this).attr("id") + "-view";
@@ -203,5 +230,6 @@
   });
 
   load_vis1();
+  load_avg();
 
 })();

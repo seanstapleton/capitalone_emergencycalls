@@ -25,7 +25,7 @@
   </nav>
 
   <div class="primary-content">
-    <section id="trend-viewer" style="display: none">
+    <section id="trend-viewer">
       <div class="trend-box">
         <div class="trend-picker">
           <ul>
@@ -73,6 +73,16 @@
             <div id="search-prediction-results-view"></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="average-dispatch">
+      <div class="dispatch-agg">
+        <h4>Average Dispatch Time by Zipcode</h4>
+        <div id="avg-dispatch-graph"></div>
+        <p>Zipcode with highest average dispatch time: 94127.</p>
+        <p><b>How can we improve this?</b></p>
+        <p>By analyzing map data surrounding this geographic region, it is clear that, in contrast from most other areas in San Francisco, this specific zip code has little structure to its road system. It is therefore probable that the extremely high response times in this area are due to poor navigation abilities. Some ways this situation can be improved is by scheduling a navigation event among emergency response vehicle drivers to familiarize themselves with the area. This could also be improved by adding an additional response station nearby this neighborhood. This would naturally familiarize the responders with the area and reduce time spent travelling to this zip code.</p>
       </div>
     </section>
   </div>

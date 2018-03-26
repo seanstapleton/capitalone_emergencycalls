@@ -39,7 +39,7 @@ a {
   width: calc(100% - 65px);
   background-color: #eee;
 }
-#trend-viewer, #dispatch-prediction {
+#trend-viewer, #dispatch-prediction, #average-dispatch {
   padding: 50px 10%;
 }
 .trend-box {
@@ -121,6 +121,10 @@ a {
 #search-prediction-results-view {
   padding: 40px;
   background-color: #eee;
+}
+.dispatch-agg {
+  background-color: #ddd;
+  padding: 40px;
 }
 
 
