@@ -1,4 +1,5 @@
 (function() {
+  //plot visualizations
   var load_vis1 = function() {
     $.getJSON("/data/dotw_calls.json", function(data) {
       var counts = [
@@ -184,9 +185,34 @@
       vis3_loaded = true;
     });
   }
+  var load_vis4 = function() {
+    $.getJSON("/data/type_frequencies.json", function(data) {
+      var labels = [];
+      var values = [];
+      for (key in data[0]) {
+        labels.push(key);
+        values.push({"name": key, "data": data[0][key]});
+        sum += data[0][key];
+      }
+      var data = {
+        series: values
+      };
+      console.log(values);
+      var sum = function(a, b) { return a + b };
+      new Chartist.Pie('#vis4-view', data, {
+        width: '100%',
+        height: '400px',
+        plugins: [
+          Chartist.plugins.legend()
+        ]
+      });
+    });
+  }
+  //specifies whether or not a plot has already been loaded
   var vis1_loaded = false;
   var vis2_loaded = false;
   var vis3_loaded = false;
+  var vis4_loaded = false;
   var load_avg = function(data) {
     $.getJSON("/data/avg_dispatch.json", function(data) {
       var vals = [];
@@ -215,6 +241,7 @@
 
   }
 
+  //display new visualization and hide old ones
   $(".vis-picker").click(function() {
     var id_picked = "#" + $(this).attr("id") + "-view";
     var id = $(this).attr("id");
@@ -224,11 +251,14 @@
       load_vis2();
     } else if (id == "vis3" && !vis3_loaded) {
       load_vis3();
+    } else if (id == "vis4" && !vis4_loaded) {
+      load_vis4();
     }
     $(".vis-view").removeClass("selected");
     $(id_picked).addClass("selected");
   });
 
+  //initialize default visualizations
   load_vis1();
   load_avg();
 
