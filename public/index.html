@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='/'/>
+  <meta name='title' content='SFPD Emergency Call Sandbox'>
+  <meta name='description' content='My CapitalOne Technology Summit Submission'>
+  <meta name='keywords' content='technology,machinelearning,dataset'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="/lib/chartist/chartist.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-home">
+    <div class="brand-box">
+      <div class="logo-round">
+        <p>SF</p>
+      </div>
+    </div>
+    <div class="nav-inner">
+      <h4>SFPD Data Visualizer</h4>
+    </div>
+  </nav>
+
+  <div class="primary-content">
+    <section id="trend-viewer">
+      <div class="trend-box">
+        <div class="trend-picker">
+          <ul>
+            <li style="background-color: #111"><b>Data Visualizations</b></li>
+            <li>Call frequency by day</li>
+            <li>Call frequency by hour</li>
+            <li>Priority by neighborhood</li>
+          </ul>
+        </div>
+        <div class="trend-viewbox">
+          <!-- something goes here -->
+          <div class="ct-chart"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/lib/chartist/chartist.min.js"></script>
+  <script src="/lib/chartist/chartist-plugin-legend/chartist-plugin-legend.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
