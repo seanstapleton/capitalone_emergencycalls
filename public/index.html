@@ -25,19 +25,53 @@
   </nav>
 
   <div class="primary-content">
-    <section id="trend-viewer">
+    <section id="trend-viewer" style="display: none">
       <div class="trend-box">
         <div class="trend-picker">
           <ul>
             <li style="background-color: #111"><b>Data Visualizations</b></li>
-            <li>Call frequency by day</li>
-            <li>Call frequency by hour</li>
-            <li>Priority by neighborhood</li>
+            <li class="vis-picker" id="vis1">Call frequency by day</li>
+            <li class="vis-picker" id="vis2">Call frequency by hour</li>
+            <li class="vis-picker" id="vis3">Priority by neighborhood</li>
           </ul>
         </div>
         <div class="trend-viewbox">
           <!-- something goes here -->
-          <div class="ct-chart"></div>
+          <div class="ct-chart vis-view selected" id="vis1-view">
+            <p style="text-align: center">Frequency of calls by unit_type vs. Day of the Week</p>
+          </div>
+          <div class="ct-chart vis-view" id="vis2-view">
+            <p style="text-align: center">Frequency of calls by unit_type vs. Hour of the Day</p>
+          </div>
+          <div class="ct-chart vis-view" id="vis3-view">
+            <p style="text-align: center">Priority of call vs. Supervisor District</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="dispatch-prediction">
+      <div class="search-outer-container">
+        <div class="search-container">
+          <h4>Dispatch Predictor</h4>
+          <p>Type in an address and time to predict the type of dispatch needed</p>
+        </div>
+        <div class="results-container">
+          <div class="search-tab">
+            <div class="inp-container">
+              <form id="address-search">
+                <div class="input-group">
+                  <input type="text" id="address-search-inp" class="form-control" placeholder="1234 S State St, Ann Arbor, MI" aria-label="1234 S State St, Ann Arbor, MI" aria-describedby="btn-submit">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Go</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="search-results"></div>
+          </div>
+          <div class="results-graph">
+            <div id="search-prediction-results-view"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -47,6 +81,10 @@
   <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="/lib/chartist/chartist.min.js"></script>
   <script src="/lib/chartist/chartist-plugin-legend/chartist-plugin-legend.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtQEoS7BCSY4T8xhmLrV34qc84MLnYK7M">
+  </script>
+  <script src="/js/maps.js"></script>
   <script src="/js/app.js"></script>
 </body>
 </html>
